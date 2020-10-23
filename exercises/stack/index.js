@@ -10,6 +10,24 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+//similar to queue but the order of adding and removing is different.
+// FILO - First In Last Out
+class Stack {
+  constructor() {
+    this.data = []
+  }
+
+  push(record) {
+    this.data.push(record)
+  }
+
+  pop() {
+    return this.data.pop()
+  }
+
+  peek() {
+    return this.data[this.data.length - 1]
+  }
+}
 
 module.exports = Stack;

@@ -13,6 +13,21 @@
 //unshift, add to start of array, pop, removes from end and returns it
 
 //one reason to use queue, would be for performance as array with all methods would be less performant, and by calling it a queue other engineers would know not to use all types of array methods
-class Queue { }
+
+//FIFO - First In First Out
+class Queue {
+
+  constructor() {
+    this.data = [];
+  }
+
+  add(record) {
+    this.data.unshift(record);
+  }
+
+  remove() {
+    return this.data.pop();
+  }
+}
 
 module.exports = Queue;
