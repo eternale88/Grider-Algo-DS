@@ -69,8 +69,34 @@ class LinkedList {
       return null
     }
     // to remove first, point head to second node
-    // let node = new Node(data, this.head)
     this.head = node.next
+  }
+
+  removeLast() {
+    //if no nodes, exit
+    if (!this.head) {
+      return
+    }
+
+    //check see if length of 1
+    // if next to head null, means only one, so remove it
+    if (!this.head.next) {
+      this.head = null
+      return
+    }
+
+    //the actual algorithm, after edge cases handled above
+    //get first and second
+    let previous = this.head
+    let node = this.head.next
+    //while still a value left loop it
+    while (node.next) {
+      previous = node
+      node = node.next
+    }
+    //if node.next is null, update previous pointer to null, therefore removing the last node
+    previous.next = null
+
   }
 
 }
