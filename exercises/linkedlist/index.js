@@ -96,7 +96,17 @@ class LinkedList {
     }
     //if node.next is null, update previous pointer to null, therefore removing the last node
     previous.next = null
+  }
 
+  insertLast(data) {
+    const last = this.getLast()
+    if (last) {
+      // there are some existing nodes in our chain, point current last's next prop to our new one(inserting there)
+      last.next = new Node(data)
+    } else {
+      // node chain is empty, so insert new node
+      this.head = newNode(data)
+    }
   }
 
 }
