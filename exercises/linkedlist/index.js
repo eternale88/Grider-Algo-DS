@@ -75,7 +75,7 @@ class LinkedList {
   removeLast() {
     //if no nodes, exit
     if (!this.head) {
-      return
+      return null
     }
 
     //check see if length of 1
@@ -94,7 +94,7 @@ class LinkedList {
       previous = node
       node = node.next
     }
-    //if node.next is null, update previous pointer to null, therefore removing the last node
+    //if node.next is null, update previous pointer to null, therefore removing the last node, that you are currently on
     previous.next = null
   }
 
@@ -105,8 +105,50 @@ class LinkedList {
       last.next = new Node(data)
     } else {
       // node chain is empty, so insert new node
-      this.head = newNode(data)
+      this.head = new Node(data)
     }
+  }
+
+  getAt(index) {
+    // edge case below can be skipped since, is handled by return null below in this
+
+    // if (!this.head) {
+    //   return null
+    // }
+    let node = this.head
+    let counter = 0
+    while (node) {
+      // index === to counter, return node 
+      if (index === counter) {
+        return node
+      }
+      //else increment, and go to next node
+      counter++
+      node = node.next
+    }
+    // edge case, for if index is out of bounds, skip loop and return null, if null it never enters while loop because of it's condition
+    return null
+  }
+
+  removeAt(index) {
+    if (!this.head) {
+      return null
+    }
+
+    if (index === 0) {
+      //if its the first node, point to next, meaning it's removed
+      return this.head = this.head.next
+    }
+
+    // when index is > 0 and we find prev node,
+    //and update next prop to look further out into future to the one after it
+    const previous = this.getAt(index - 1)
+    //important edge case, if prev is out of bounds, or prev.next out of bounds,  return
+    if (!previous || !previous.next) {
+      return null
+    }
+    previous.next = previous.next.next
+
   }
 
 }
