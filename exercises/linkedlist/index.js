@@ -148,6 +148,31 @@ class LinkedList {
       return null
     }
     previous.next = previous.next.next
+  }
+
+  insertAt(data, index) {
+    // if list is empty
+    if (!this.head) {
+      //reused a method :)
+      this.insertFirst(data)
+    }
+    // insert at index 0 when list isn't empty,
+    // pass in this.head, to make sure it points to old one
+    if (index === 0) {
+      this.head = new Node(data, this.head)
+      return
+    }
+    //if adding int in the middle, get previous element, create new node with reference to one after previous
+    // or this.getLast handles, to insert node last when index is out of bounds
+    const previous = this.getAt(index - 1) || this.getLast()
+    const node = new Node(data, previous.next)
+    //then update previous.next to point to our new node
+    previous.next = node
+
+    if (!previous || !previous.next) {
+      this.insertFirst(data)
+    }
+
 
   }
 
