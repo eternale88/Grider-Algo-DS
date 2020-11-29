@@ -184,6 +184,17 @@ class LinkedList {
     }
   }
 
+  //allow use of (for of by using), by using generator function
+  //same result as forEach above, can now use for of loop in tests
+  //for of loops can be used in tests because they automatically look for *[Symbol.iterator]
+  *[Symbol.iterator]() {
+    let node = this.head
+    while (node) {
+      yield node
+      node = node.next
+    }
+  }
+
 }
 
 module.exports = { Node, LinkedList };
