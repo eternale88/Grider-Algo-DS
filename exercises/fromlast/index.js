@@ -11,6 +11,25 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  let slow = list.getFirst()
+  let fast = list.getFirst()
+
+  // allows fast to advance number(n) intolist
+  while (n > 0) {
+    fast = fast.next
+    n--
+  }
+  // while is a next node, advance both
+  while (fast.next) {
+    slow = slow.next
+    fast = fast.next
+    //when fast.next is no longer true
+    // slow is n times behind
+    // and can be returned outside loop
+    // with no more work required
+  }
+  return slow
+}
 
 module.exports = fromLast;
