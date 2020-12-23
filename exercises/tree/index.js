@@ -34,7 +34,7 @@ class Tree {
     this.root = null
   }
 
-  //heirarchy - like print out ceo, to cto, coo
+  //heirarchy - like print out ceo, to cto, coo, left to right top to bottom
   traverseBF(fn) {
     // let arr = []
     // arr.push(this.root)
