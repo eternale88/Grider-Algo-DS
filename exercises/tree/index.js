@@ -26,11 +26,31 @@ class Node {
       //!== because filter, only removes for false values, so all that not equal data are removed
       return node.data !== data
     })
-
-
   }
 }
 
-class Tree { }
+class Tree {
+  constructor() {
+    this.root = null
+  }
+
+  //heirarchy - like print out ceo, to cto, coo
+  traverseBF(fn) {
+    // let arr = []
+    // arr.push(this.root)
+    //get top node aka parent, add to array
+    const arr = [this.root]
+
+    //while arr had nodes
+    while (arr.length) {
+      //shift removes and return first el
+      let node = arr.shift()
+      //... takes them out of children array and adds them, simpler that for of loop
+      arr.push(...node.children)
+      //fn gets rid of the node we removed
+      fn(node)
+    }
+  }
+}
 
 module.exports = { Tree, Node };
