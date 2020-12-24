@@ -24,6 +24,7 @@ class Node {
   remove(data) {
     this.children = this.children.filter((node) => {
       //!== because filter, only removes for false values, so all that not equal data are removed
+      //return all of the data that isn't the data we are removing
       return node.data !== data
     })
   }
@@ -48,6 +49,20 @@ class Tree {
       //... takes them out of children array and adds them, simpler that for of loop
       arr.push(...node.children)
       //fn gets rid of the node we removed
+      fn(node)
+    }
+  }
+
+  traverseDF(fn) {
+    let arr = [this.root]
+
+    while (arr.length) {
+      let node = arr.shift()
+
+      //the difference between depthFirst and breadthFirst
+      // in dF you add the children to the front
+      //in bF above we added them to the end
+      arr.unshift(...node.children)
       fn(node)
     }
   }
