@@ -10,7 +10,7 @@
 // |       |
 // 4       5
 // Answer: [1, 3, 2]
-
+//use breadth first search to find width
 function levelWidth(root) {
   const arr = [root, null]
   const counters = [0]
