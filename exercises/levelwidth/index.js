@@ -15,7 +15,7 @@ function levelWidth(root) {
   const arr = [root, null]
   const counters = [0]
 
-  //we always add null, so array must be greater than 1 to be looped through, or would have infinite loop
+  //we always add null at end of each level of tree, so array must be greater than 1 to be looped through, or would have infinite loop
   while (arr.length > 1) {
     const node = arr.shift()
 
@@ -26,6 +26,7 @@ function levelWidth(root) {
       counters.push(0)
     } else {
       //else meaning our node has a value
+      //we add it's children to arr, and increment, throwing away that node
       arr.push(...node.children)
       //increments last el of array
       counters[counters.length - 1]++
