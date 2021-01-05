@@ -16,7 +16,7 @@ function validate(node, min = null, max = null) {
     return false
   }
 
-  //
+  //recursion
   if (node.left && !validate(node.left, min, node.data)) {
     return false
   }
