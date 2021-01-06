@@ -23,8 +23,8 @@ class Events {
   // Trigger all callbacks associated
   // with a given eventName
   trigger(eventName) {
-    //if any event of the trigger name on the array
-    //then we loop through and call the ones with that event type
+    //if any events in our list have the trigger name
+    //then we loop through and call the ones with that event name
     if (this.events[eventName]) {
       for (let cb of this.events[eventName]) {
         cb()
