@@ -19,7 +19,25 @@ function bubbleSort(arr) {
 }
 
 function selectionSort(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    //assume idex of i is lowest value in array to begin, prove this wrong
+    let indexOfMin = i
 
+    //find out if there is a lower value than index of i
+    // if yes, assing it's index to indexOfMin
+    for(let j = i + 1; j < arr.length; j++) {
+      if(arr[j] < arr[indexOfMin]) {
+        indexOfMin = j
+      }
+    }
+    //if current index isn't the same as min,, swap their values
+    if(indexOfMin !== i) {
+      let lesser = arr[indexOfMin]
+      arr[indexOfMin] = arr[i]
+      arr[i] = lesser
+    }
+  }
+  return arr
 }
 
 function mergeSort(arr) {
