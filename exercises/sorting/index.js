@@ -30,7 +30,7 @@ function selectionSort(arr) {
         indexOfMin = j
       }
     }
-    //if current index isn't the same as min,, swap their values
+    //if current index isn't the same as min(it was incremented),, swap their values
     if(indexOfMin !== i) {
       let lesser = arr[indexOfMin]
       arr[indexOfMin] = arr[i]
